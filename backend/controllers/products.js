@@ -43,9 +43,10 @@ products.updateDataProduct = async (req, res) => {
             title: object.title,
             price: object.price,
         }
-        const result = await model.updateDataProduct(data)
+        const result = await model.updateDataProduct(req.params.id, data)
         return response(res, 201, result)
     } catch (error) {
+        console.log(error)
         return response(res, 500, error, true)
     }
 }
